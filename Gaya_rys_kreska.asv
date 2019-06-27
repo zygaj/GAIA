@@ -1,0 +1,28 @@
+function Gaya_rys_kreska(x0,y0,x1,y1,glebokosc,gruboscmat)
+
+if nargin==0
+    x0=-50
+    y0=0
+    x1=50
+    y1=0
+    glebokosc=2
+    gruboscmat=0
+end
+
+speed=500
+
+tCmd=telnet_Gaya_init();
+odb=Gaya_home(tCmd);
+
+gruboscoperac=10;
+z=gruboscmat-glebokosc+gruboscoperac;
+odb=Gaya_move(x0,y0,z,tCmd,2000);
+
+z=gruboscmat-glebokosc;
+odb=Gaya_move(x0,y0,z,tCmd,speed);
+
+odb=Gaya_move(x1,y1,z,tCmd,speed);
+
+telnet_Gaya_close(tCmd);
+
+

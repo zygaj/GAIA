@@ -1,0 +1,8 @@
+close all;
+clc;
+clear all;
+
+tCmd=telnet_Gaya_init();
+
+
+telnet_Gaya_close(tCmd);
